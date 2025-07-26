@@ -1,0 +1,17 @@
+def format_indian_currency(number):
+    num_str = str(number)
+    if '.' in num_str:
+        int_part, dec_part = num_str.split('.')
+        dec_part = '.' + dec_part
+    else:
+        int_part = num_str
+        dec_part = ''
+    rev = int_part[::-1]
+    result = rev[:3]
+    for i in range(3, len(rev), 2):
+        result += ',' + rev[i:i+2]
+    formatted_int = result[::-1]
+
+    return formatted_int + dec_part
+num =float(input())
+print(format_indian_currency(num))  
